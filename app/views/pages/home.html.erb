@@ -1,0 +1,19 @@
+<h1>Entrez le nom d'une money pour connaître sa valeur</h1>
+<p>example : Bitcoin, Ethereum, EOS, Stellar, Litecoin, Cardano, Tether, TRON</p>
+
+
+<%= form_tag 'home', method: "post" do %>
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <p>
+    <input type="text" name="name" placeholder="Votre money">
+  </p>
+  <p>
+    <input type="submit" value="Connaître la valeur">
+  </p>
+<% end %>
+
+
+
+<% @cryptos.each do |crypto| %>
+  <p>La valeurs de <%= crypto.name %> est de : <%= crypto.value %></p>
+<% end %>
